@@ -6,10 +6,16 @@ type Body = {
   slug?: string;
   tokenName?: string;
   tokenSymbol?: string;
+  tokenDescription?: string;
   oneLiner?: string;
   narrative?: string;
   audience?: string;
   studioNotes?: string;
+  imageUrl?: string;
+  website?: string;
+  twitter?: string;
+  telegram?: string;
+  metadataUrl?: string;
   projectStage?: ProjectStage;
 };
 
@@ -25,10 +31,19 @@ export async function POST(request: NextRequest) {
       ...kit,
       tokenName: body.tokenName ?? kit.tokenName,
       tokenSymbol: body.tokenSymbol ?? kit.tokenSymbol,
+      tokenDescription: body.tokenDescription ?? kit.tokenDescription,
       oneLiner: body.oneLiner ?? kit.oneLiner,
       narrative: body.narrative ?? kit.narrative,
       audience: body.audience ?? kit.audience,
       studioNotes: body.studioNotes ?? kit.studioNotes,
+      bagsTokenInfo: {
+        ...kit.bagsTokenInfo,
+        imageUrl: body.imageUrl ?? kit.bagsTokenInfo.imageUrl,
+        website: body.website ?? kit.bagsTokenInfo.website,
+        twitter: body.twitter ?? kit.bagsTokenInfo.twitter,
+        telegram: body.telegram ?? kit.bagsTokenInfo.telegram,
+        metadataUrl: body.metadataUrl ?? kit.bagsTokenInfo.metadataUrl,
+      },
       updatedAt,
     },
     projectStage: body.projectStage,

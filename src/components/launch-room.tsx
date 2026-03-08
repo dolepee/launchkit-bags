@@ -27,6 +27,28 @@ export function LaunchRoom({ project, kit }: Props) {
         </section>
 
         <section className="paperBlock">
+          <span className="eyebrow">Token metadata brief</span>
+          <div className="projectGrid">
+            <article className="projectCard">
+              <div className="rowTitle">
+                <h3>Description</h3>
+                <span className="tonePill toneMuted">draft</span>
+              </div>
+              <p>{kit.tokenDescription}</p>
+            </article>
+            <article className="projectCard">
+              <div className="rowTitle">
+                <h3>Image asset</h3>
+                <span className={kit.bagsTokenInfo.imageUrl ? "tonePill toneGood" : "tonePill toneMuted"}>
+                  {kit.bagsTokenInfo.imageUrl ? "set" : "missing"}
+                </span>
+              </div>
+              <p>{kit.bagsTokenInfo.imageUrl || "No image URL configured yet."}</p>
+            </article>
+          </div>
+        </section>
+
+        <section className="paperBlock">
           <span className="eyebrow">Why this stands out for Bags</span>
           <div className="projectGrid">
             {kit.bagsModules.map((module) => (
@@ -56,6 +78,36 @@ export function LaunchRoom({ project, kit }: Props) {
                 <small>{item.handle}</small>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className="paperBlock">
+          <span className="eyebrow">Bags token artifact</span>
+          <div className="projectGrid">
+            <article className="projectCard">
+              <div className="rowTitle">
+                <h3>Status</h3>
+                <span className={kit.bagsTokenInfo.status === "generated" ? "tonePill toneGood" : kit.bagsTokenInfo.status === "failed" ? "tonePill toneBad" : "tonePill toneMuted"}>
+                  {kit.bagsTokenInfo.status}
+                </span>
+              </div>
+              <p>{kit.bagsTokenInfo.lastError ?? "Generate Bags token info from the studio to turn this launch room into a real Bags-backed artifact."}</p>
+            </article>
+            <article className="projectCard">
+              <div className="rowTitle">
+                <h3>Mint</h3>
+                <span className="tonePill toneMuted">{kit.bagsTokenInfo.tokenMint ? "live" : "pending"}</span>
+              </div>
+              <p>{kit.bagsTokenInfo.tokenMint ?? "No Bags mint generated yet."}</p>
+              {kit.bagsTokenInfo.uri ? <small>{kit.bagsTokenInfo.uri}</small> : null}
+            </article>
+            <article className="projectCard">
+              <div className="rowTitle">
+                <h3>Metadata account</h3>
+                <span className="tonePill toneMuted">{kit.bagsTokenInfo.tokenMetadata ? "ready" : "pending"}</span>
+              </div>
+              <p>{kit.bagsTokenInfo.tokenMetadata ?? "No token metadata account yet."}</p>
+            </article>
           </div>
         </section>
 

@@ -34,6 +34,12 @@ Relevant Render docs:
 - `https://render.com/docs/free`
 - `https://render.com/docs/deploys`
 
+## Environment variables
+
+- `BAGS_API_KEY`: required for the Bags `create-token-info` API call
+- `LAUNCHKIT_OPERATOR_KEY`: required by the studio to authorize token-info generation
+- `BAGS_API_BASE_URL`: optional, defaults to `https://public-api-v2.bags.fm/api/v1`
+
 ## Why Render works now
 
 Render can run the app as a normal Next.js Node server. That makes it a better short-term fit than GitHub Pages. The free plan is enough to get the app off the VPS IP quickly, even though state persistence is limited.

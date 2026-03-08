@@ -36,6 +36,7 @@
       "slug": "pulseboard-season-zero",
       "tokenName": "PulseBoard Access",
       "tokenSymbol": "PULSE",
+      "tokenDescription": "PulseBoard Access aligns creators, operators, and early evangelists around the analytics workflows that make creator discovery compounding.",
       "oneLiner": "A launch kit that turns PulseBoard's early power users into an aligned Bags-native growth ring.",
       "narrative": "PulseBoard should not launch as a generic utility token. It should launch as an access-and-alignment layer for creators, operators, and early evangelists who make creator analytics feel like a living network. The token gives the builder a clean narrative, a fee-sharing surface, and a concrete reason to onboard the first contributors onchain.",
       "audience": "Crypto-native creators, alpha communities, and community operators who care about discoverability, signal, and earned access.",
@@ -90,6 +91,21 @@
           "note": "Public-facing launch room can show token story and progress."
         }
       ],
+      "bagsTokenInfo": {
+        "status": "draft",
+        "imageUrl": "https://placehold.co/1200x1200/png?text=PULSE",
+        "website": "https://pulseboard.example.com",
+        "twitter": "",
+        "telegram": "https://t.me/mirabuilds",
+        "metadataUrl": "",
+        "tokenMint": null,
+        "tokenMetadata": null,
+        "launchWallet": null,
+        "launchSignature": null,
+        "uri": null,
+        "generatedAt": null,
+        "lastError": null
+      },
       "checklist": [
         {
           "label": "Confirm token name and ticker",
@@ -137,6 +153,7 @@
       "slug": "signalgarden-prep",
       "tokenName": "SignalGarden Research Pass",
       "tokenSymbol": "SEED",
+      "tokenDescription": "SignalGarden Research Pass makes recurring analysts, curators, and community operators visible contributors with shared upside from day one.",
       "oneLiner": "A contributor-driven Bags launch plan for a research collective that wants visible incentives from day one.",
       "narrative": "SignalGarden's opportunity is to make research participation legible. The Bags angle is not speculation for its own sake. It is a visible incentive layer for analysts, community curators, and repeat contributors who help the research product compound.",
       "audience": "Community researchers, Discord operators, and analysts who want a shared upside model.",
@@ -191,6 +208,21 @@
           "note": "Public page can be shown once builder opts in."
         }
       ],
+      "bagsTokenInfo": {
+        "status": "draft",
+        "imageUrl": "https://placehold.co/1200x1200/png?text=SEED",
+        "website": "https://signalgarden.example.com",
+        "twitter": "https://x.com/signaljo",
+        "telegram": "",
+        "metadataUrl": "",
+        "tokenMint": null,
+        "tokenMetadata": null,
+        "launchWallet": null,
+        "launchSignature": null,
+        "uri": null,
+        "generatedAt": null,
+        "lastError": null
+      },
       "checklist": [
         {
           "label": "Open first conversation with builder",

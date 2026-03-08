@@ -6,6 +6,8 @@ export type BagsStatus = "planned" | "configured" | "ready";
 
 export type ProofStatus = "queued" | "in-progress" | "done";
 
+export type BagsTokenInfoState = "draft" | "generated" | "failed";
+
 export type CandidateProject = {
   id: string;
   slug: string;
@@ -46,18 +48,36 @@ export type ProofItem = {
   status: ProofStatus;
 };
 
+export type BagsTokenInfo = {
+  status: BagsTokenInfoState;
+  imageUrl: string;
+  website: string;
+  twitter: string;
+  telegram: string;
+  metadataUrl: string;
+  tokenMint: string | null;
+  tokenMetadata: string | null;
+  launchWallet: string | null;
+  launchSignature: string | null;
+  uri: string | null;
+  generatedAt: string | null;
+  lastError: string | null;
+};
+
 export type LaunchKit = {
   id: string;
   projectId: string;
   slug: string;
   tokenName: string;
   tokenSymbol: string;
+  tokenDescription: string;
   oneLiner: string;
   narrative: string;
   audience: string;
   hooks: string[];
   feeRecipients: FeeRecipient[];
   bagsModules: BagsModule[];
+  bagsTokenInfo: BagsTokenInfo;
   checklist: ChecklistItem[];
   proofItems: ProofItem[];
   studioNotes: string;
