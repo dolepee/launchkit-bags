@@ -23,21 +23,21 @@ This repo includes a `render.yaml` for deployment as a Render web service.
 Important:
 
 - deploy as a `web` service, not a static site
-- the app currently uses a JSON store, so it needs a persistent disk on Render
-- `LAUNCHKIT_DATA_DIR` points the app at the mounted disk path
-- first boot seeds the mounted data path from `data/launchkit-store.json`, so the demo kit is available immediately
+- this `render.yaml` is configured for the free Render plan
+- the app still uses a JSON store, so saved edits and review state are ephemeral on free Render instances
+- the bundled `data/launchkit-store.json` seed makes the demo kit available on boot, but runtime changes can reset after redeploy or service sleep
 
 Relevant Render docs:
 
 - `https://render.com/docs/deploy-nextjs-app`
 - `https://render.com/docs/web-services`
-- `https://render.com/docs/disks`
+- `https://render.com/docs/free`
 - `https://render.com/docs/deploys`
 
 ## Why Render works now
 
-Render can run the app as a normal Next.js Node server. That makes it a better short-term fit than GitHub Pages and a simpler fit than Vercel while the app still writes to a local data store.
+Render can run the app as a normal Next.js Node server. That makes it a better short-term fit than GitHub Pages. The free plan is enough to get the app off the VPS IP quickly, even though state persistence is limited.
 
 ## Longer-term production direction
 
-The JSON store is acceptable for MVP demos, but it should be replaced with a real datastore before treating this as production infrastructure.
+The JSON store is acceptable for MVP demos, but it should be replaced with a real datastore before treating this as production infrastructure. Once that is done, Render or Vercel both become cleaner long-term hosts.

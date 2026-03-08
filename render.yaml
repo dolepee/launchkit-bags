@@ -2,7 +2,7 @@ services:
   - type: web
     name: launchkit-bags
     runtime: node
-    plan: starter
+    plan: free
     region: oregon
     buildCommand: npm ci && npm run build
     startCommand: npm run start -- --hostname 0.0.0.0 --port $PORT
@@ -11,9 +11,3 @@ services:
         value: 22.16.0
       - key: NEXT_BASE_PATH
         value: ""
-      - key: LAUNCHKIT_DATA_DIR
-        value: /var/data/launchkit-bags
-    disk:
-      name: launchkit-data
-      mountPath: /var/data/launchkit-bags
-      sizeGB: 1
