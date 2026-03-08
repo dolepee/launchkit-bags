@@ -1,0 +1,218 @@
+{
+  "projects": [
+    {
+      "id": "proj_pulseboard",
+      "slug": "pulseboard",
+      "name": "PulseBoard",
+      "sector": "creator analytics",
+      "builderName": "Mira",
+      "contactHandle": "@mirabuilds",
+      "contactChannel": "Telegram",
+      "fitScore": 92,
+      "priority": "high",
+      "status": "review",
+      "summary": "Analytics builder with a clear power-user audience and a confirmed willingness to review a Bags-native launch plan immediately.",
+      "lastTouch": "2026-03-08T12:20:00.000Z"
+    },
+    {
+      "id": "proj_signalgarden",
+      "slug": "signalgarden",
+      "name": "SignalGarden",
+      "sector": "community research",
+      "builderName": "Jo",
+      "contactHandle": "@signaljo",
+      "contactChannel": "X DM",
+      "fitScore": 81,
+      "priority": "medium",
+      "status": "drafting",
+      "summary": "Research-heavy community product that could use Bags for contributor rewards and launch storytelling.",
+      "lastTouch": "2026-03-07T16:10:00.000Z"
+    }
+  ],
+  "kits": [
+    {
+      "id": "kit_pulseboard",
+      "projectId": "proj_pulseboard",
+      "slug": "pulseboard-season-zero",
+      "tokenName": "PulseBoard Access",
+      "tokenSymbol": "PULSE",
+      "oneLiner": "A launch kit that turns PulseBoard's early power users into an aligned Bags-native growth ring.",
+      "narrative": "PulseBoard should not launch as a generic utility token. It should launch as an access-and-alignment layer for creators, operators, and early evangelists who make creator analytics feel like a living network. The token gives the builder a clean narrative, a fee-sharing surface, and a concrete reason to onboard the first contributors onchain.",
+      "audience": "Crypto-native creators, alpha communities, and community operators who care about discoverability, signal, and earned access.",
+      "hooks": [
+        "Reward the first contributors who turn analytics into distribution.",
+        "Use fee sharing to make community growth provable instead of promised in DMs.",
+        "Give judges a visible path from launch plan to wallets, claims, and recurring usage."
+      ],
+      "feeRecipients": [
+        {
+          "role": "Builder",
+          "share": 70,
+          "handle": "@mirabuilds",
+          "reason": "Keeps the founder economically dominant while still sharing upside."
+        },
+        {
+          "role": "Growth operator",
+          "share": 20,
+          "handle": "@launchkit",
+          "reason": "Rewards the person responsible for activating the first wave of users."
+        },
+        {
+          "role": "Launch reserve",
+          "share": 10,
+          "handle": "TBD",
+          "reason": "Leaves room for a moderator, designer, or referral partner."
+        }
+      ],
+      "bagsModules": [
+        {
+          "key": "token",
+          "label": "Token launch scaffold",
+          "status": "configured",
+          "note": "Name, symbol, and launch story are drafted for the builder."
+        },
+        {
+          "key": "fee-sharing",
+          "label": "Fee-sharing plan",
+          "status": "configured",
+          "note": "Initial split is drafted and ready for builder approval."
+        },
+        {
+          "key": "partner-loop",
+          "label": "Partner growth loop",
+          "status": "planned",
+          "note": "Reserved for launch partners and repeatable referrals."
+        },
+        {
+          "key": "trade-room",
+          "label": "Launch room preview",
+          "status": "ready",
+          "note": "Public-facing launch room can show token story and progress."
+        }
+      ],
+      "checklist": [
+        {
+          "label": "Confirm token name and ticker",
+          "done": false
+        },
+        {
+          "label": "Approve fee-sharing story",
+          "done": false
+        },
+        {
+          "label": "Pick the first growth operator slot",
+          "done": false
+        },
+        {
+          "label": "Choose Bags launch window",
+          "done": false
+        }
+      ],
+      "proofItems": [
+        {
+          "label": "Sourced builders",
+          "target": "10 to 20",
+          "status": "in-progress"
+        },
+        {
+          "label": "Approved kits",
+          "target": "3+",
+          "status": "queued"
+        },
+        {
+          "label": "Real launches",
+          "target": "2+",
+          "status": "queued"
+        }
+      ],
+      "studioNotes": "This is the first confirmed builder. Keep turnaround tight and capture specific objections to language, splits, and launch timing.",
+      "builderDecision": null,
+      "builderFeedback": "",
+      "updatedAt": "2026-03-08T12:20:00.000Z",
+      "reviewUpdatedAt": null
+    },
+    {
+      "id": "kit_signalgarden",
+      "projectId": "proj_signalgarden",
+      "slug": "signalgarden-prep",
+      "tokenName": "SignalGarden Research Pass",
+      "tokenSymbol": "SEED",
+      "oneLiner": "A contributor-driven Bags launch plan for a research collective that wants visible incentives from day one.",
+      "narrative": "SignalGarden's opportunity is to make research participation legible. The Bags angle is not speculation for its own sake. It is a visible incentive layer for analysts, community curators, and repeat contributors who help the research product compound.",
+      "audience": "Community researchers, Discord operators, and analysts who want a shared upside model.",
+      "hooks": [
+        "Reward curation and recurring contributions publicly.",
+        "Make research distribution measurable with explicit incentive surfaces.",
+        "Create a launch room judges can understand in under one minute."
+      ],
+      "feeRecipients": [
+        {
+          "role": "Builder",
+          "share": 75,
+          "handle": "@signaljo",
+          "reason": "Preserves founder control in the early phase."
+        },
+        {
+          "role": "Contributor pool",
+          "share": 15,
+          "handle": "TBD",
+          "reason": "Allocates real upside for recurring analysts."
+        },
+        {
+          "role": "Community reserve",
+          "share": 10,
+          "handle": "TBD",
+          "reason": "Keeps flexibility for moderators and partnerships."
+        }
+      ],
+      "bagsModules": [
+        {
+          "key": "token",
+          "label": "Token launch scaffold",
+          "status": "planned",
+          "note": "Narrative is drafted but builder outreach has not started."
+        },
+        {
+          "key": "fee-sharing",
+          "label": "Fee-sharing plan",
+          "status": "planned",
+          "note": "Contributor structure needs builder confirmation."
+        },
+        {
+          "key": "partner-loop",
+          "label": "Partner growth loop",
+          "status": "planned",
+          "note": "Referral and partner roles are not assigned yet."
+        },
+        {
+          "key": "trade-room",
+          "label": "Launch room preview",
+          "status": "configured",
+          "note": "Public page can be shown once builder opts in."
+        }
+      ],
+      "checklist": [
+        {
+          "label": "Open first conversation with builder",
+          "done": false
+        },
+        {
+          "label": "Refine research-specific language",
+          "done": false
+        }
+      ],
+      "proofItems": [
+        {
+          "label": "Builder response",
+          "target": "1 reply",
+          "status": "queued"
+        }
+      ],
+      "studioNotes": "Good second target after the confirmed builder flow is stable.",
+      "builderDecision": null,
+      "builderFeedback": "",
+      "updatedAt": "2026-03-07T16:10:00.000Z",
+      "reviewUpdatedAt": null
+    }
+  ]
+}
