@@ -4,11 +4,21 @@ import { readJsonFile, writeJsonFile } from "@/lib/fs-utils";
 import { CandidateProject, LaunchKit, LaunchKitStore, ProjectStage, ReviewDecision } from "@/lib/types";
 
 const storeFile = path.join(getDataDir(), "launchkit-store.json");
+const bundledSeedFile = path.join(process.cwd(), "data", "launchkit-store.json");
 
 const emptyStore: LaunchKitStore = {
   projects: [],
   kits: [],
 };
+
+function isLaunchKitStore(value: unknown): value is LaunchKitStore {
+  if (!value || typeof value !== "object") {
+    return false;
+  }
+
+  const candidate = value as Partial<LaunchKitStore>;
+  return Array.isArray(candidate.projects) && Array.isArray(candidate.kits);
+}
 
 function sortByTouch<T extends { updatedAt?: string; lastTouch?: string }>(items: T[]): T[] {
   return [...items].sort((a, b) => {
@@ -26,7 +36,21 @@ function deriveStage(decision: ReviewDecision, current: ProjectStage): ProjectSt
 }
 
 export async function loadStore(): Promise<LaunchKitStore> {
-  return readJsonFile<LaunchKitStore>(storeFile, emptyStore);
+  const existing = await readJsonFile<unknown>(storeFile, null);
+  if (isLaunchKitStore(existing)) {
+    return existing;
+  }
+
+  if (storeFile !== bundledSeedFile) {
+    const seeded = await readJsonFile<unknown>(bundledSeedFile, emptyStore);
+    if (isLaunchKitStore(seeded)) {
+      await writeJsonFile(storeFile, seeded);
+      return seeded;
+    }
+  }
+
+  await writeJsonFile(storeFile, emptyStore);
+  return emptyStore;
 }
 
 export async function saveStore(store: LaunchKitStore): Promise<void> {
