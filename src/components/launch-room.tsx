@@ -1,4 +1,5 @@
 import { CandidateProject, LaunchKit } from "@/lib/types";
+import { normalizeBagsMetadata } from "@/lib/bags-metadata";
 
 type Props = {
   project: CandidateProject;
@@ -6,6 +7,8 @@ type Props = {
 };
 
 export function LaunchRoom({ project, kit }: Props) {
+  const metadata = normalizeBagsMetadata(kit.bagsTokenInfo.tokenMetadata, kit.bagsTokenInfo.uri);
+
   return (
     <section className="launchRoom">
       <div className="launchHero">
@@ -99,15 +102,23 @@ export function LaunchRoom({ project, kit }: Props) {
                 <span className="tonePill toneMuted">{kit.bagsTokenInfo.tokenMint ? "live" : "pending"}</span>
               </div>
               <p>{kit.bagsTokenInfo.tokenMint ?? "No Bags mint generated yet."}</p>
-              {kit.bagsTokenInfo.uri ? <small>{kit.bagsTokenInfo.uri}</small> : null}
             </article>
             <article className="projectCard">
               <div className="rowTitle">
-                <h3>Metadata account</h3>
-                <span className="tonePill toneMuted">{kit.bagsTokenInfo.tokenMetadata ? "ready" : "pending"}</span>
+                <h3>Metadata URI</h3>
+                <span className="tonePill toneMuted">{metadata.uri ? "ready" : "pending"}</span>
               </div>
-              <p>{kit.bagsTokenInfo.tokenMetadata ?? "No token metadata account yet."}</p>
+              <p>{metadata.uri ?? "No metadata URI returned yet."}</p>
             </article>
+            {metadata.tokenMetadata ? (
+              <article className="projectCard">
+                <div className="rowTitle">
+                  <h3>Metadata account</h3>
+                  <span className="tonePill toneMuted">ready</span>
+                </div>
+                <p>{metadata.tokenMetadata}</p>
+              </article>
+            ) : null}
           </div>
         </section>
 

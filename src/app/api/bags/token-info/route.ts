@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { buildTokenInfoInput, createBagsTokenInfo, getLaunchKitOperatorKey, validateKitForTokenInfo } from "@/lib/bags";
+import { normalizeBagsMetadata } from "@/lib/bags-metadata";
 import { getKitBySlug, updateKit } from "@/lib/store";
 
 type Body = {
@@ -54,6 +55,7 @@ export async function POST(request: NextRequest) {
   }
 
   const createdAt = result.response.tokenLaunch.createdAt ?? new Date().toISOString();
+  const metadata = normalizeBagsMetadata(result.response.tokenMetadata, result.response.tokenLaunch.uri ?? null);
   const persisted = await updateKit(body.slug, (kit, project) => ({
     kit: {
       ...kit,
@@ -64,10 +66,10 @@ export async function POST(request: NextRequest) {
         ...kit.bagsTokenInfo,
         status: "generated",
         tokenMint: result.response.tokenMint,
-        tokenMetadata: result.response.tokenMetadata,
+        tokenMetadata: metadata.tokenMetadata,
         launchWallet: result.response.tokenLaunch.launchWallet ?? null,
         launchSignature: result.response.tokenLaunch.launchSignature ?? null,
-        uri: result.response.tokenLaunch.uri ?? null,
+        uri: metadata.uri,
         generatedAt: createdAt,
         lastError: null,
       },

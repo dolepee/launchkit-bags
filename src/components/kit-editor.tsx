@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
+import { normalizeBagsMetadata } from "@/lib/bags-metadata";
 import { CandidateProject, LaunchKit, ProjectStage } from "@/lib/types";
 
 type Props = {
@@ -13,6 +14,7 @@ type Props = {
 type SaveState = "idle" | "saved" | "error";
 
 export function KitEditor({ project, kit }: Props) {
+  const metadata = normalizeBagsMetadata(kit.bagsTokenInfo.tokenMetadata, kit.bagsTokenInfo.uri);
   const [form, setForm] = useState({
     tokenName: kit.tokenName,
     tokenSymbol: kit.tokenSymbol,
@@ -256,8 +258,25 @@ export function KitEditor({ project, kit }: Props) {
                       <span className="tonePill toneGood">generated</span>
                     </div>
                     <p>{kit.bagsTokenInfo.tokenMint}</p>
-                    {kit.bagsTokenInfo.uri ? <small>{kit.bagsTokenInfo.uri}</small> : null}
                   </article>
+                  {metadata.uri ? (
+                    <article className="moduleCard">
+                      <div className="rowTitle">
+                        <h3>Metadata URI</h3>
+                        <span className="tonePill toneGood">ready</span>
+                      </div>
+                      <p>{metadata.uri}</p>
+                    </article>
+                  ) : null}
+                  {metadata.tokenMetadata ? (
+                    <article className="moduleCard">
+                      <div className="rowTitle">
+                        <h3>Metadata account</h3>
+                        <span className="tonePill toneGood">ready</span>
+                      </div>
+                      <p>{metadata.tokenMetadata}</p>
+                    </article>
+                  ) : null}
                 </div>
               ) : null}
             </section>
