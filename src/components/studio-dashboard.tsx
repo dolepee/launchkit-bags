@@ -12,8 +12,8 @@ function statusClass(status: string) {
   return "tonePill toneMuted";
 }
 
-function bagsReadyCount(kits: LaunchKit[]) {
-  return kits.flatMap((kit) => kit.bagsModules).filter((item) => item.status === "ready").length;
+function liveArtifactCount(kits: LaunchKit[]) {
+  return kits.filter((kit) => kit.bagsTokenInfo.status === "generated").length;
 }
 
 export function StudioDashboard({ projects, kits }: Props) {
@@ -47,8 +47,8 @@ export function StudioDashboard({ projects, kits }: Props) {
             <span className="metricLabel">Approved kits</span>
           </article>
           <article className="metricCard">
-            <span className="metricValue">{bagsReadyCount(kits)}</span>
-            <span className="metricLabel">Ready Bags modules</span>
+            <span className="metricValue">{liveArtifactCount(kits)}</span>
+            <span className="metricLabel">Live Bags artifacts</span>
           </article>
         </div>
       </div>
@@ -82,6 +82,7 @@ export function StudioDashboard({ projects, kits }: Props) {
                       <div className="inlineList">
                         <span>{kit.tokenName}</span>
                         <span>{kit.tokenSymbol}</span>
+                        <span>{project?.sector ?? "general"}</span>
                         <span>{project?.contactHandle ?? "unknown contact"}</span>
                       </div>
                     </div>

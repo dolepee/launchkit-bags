@@ -51,6 +51,41 @@ export function LaunchRoom({ project, kit }: Props) {
           </div>
         </section>
 
+        {project.projectUrl || project.verifiedProfileUrl || project.tractionSummary ? (
+          <section className="paperBlock">
+            <span className="eyebrow">Proof surface</span>
+            <div className="projectGrid">
+              {project.projectUrl ? (
+                <article className="projectCard">
+                  <div className="rowTitle">
+                    <h3>Project URL</h3>
+                    <span className="tonePill toneGood">live</span>
+                  </div>
+                  <p>{project.projectUrl}</p>
+                </article>
+              ) : null}
+              {project.verifiedProfileUrl ? (
+                <article className="projectCard">
+                  <div className="rowTitle">
+                    <h3>Verified profile</h3>
+                    <span className="tonePill toneGood">ready</span>
+                  </div>
+                  <p>{project.verifiedProfileUrl}</p>
+                </article>
+              ) : null}
+              {project.tractionSummary ? (
+                <article className="projectCard">
+                  <div className="rowTitle">
+                    <h3>Traction signal</h3>
+                    <span className="tonePill toneWarm">live</span>
+                  </div>
+                  <p>{project.tractionSummary}</p>
+                </article>
+              ) : null}
+            </div>
+          </section>
+        ) : null}
+
         <section className="paperBlock">
           <span className="eyebrow">Why this stands out for Bags</span>
           <div className="projectGrid">

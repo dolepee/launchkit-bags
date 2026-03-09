@@ -21,6 +21,10 @@ export type CandidateProject = {
   status: ProjectStage;
   summary: string;
   lastTouch: string;
+  projectUrl?: string;
+  verifiedProfileUrl?: string;
+  tractionSummary?: string;
+  source?: "seeded" | "builder-apply" | "operator";
 };
 
 export type FeeRecipient = {
